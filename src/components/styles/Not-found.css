@@ -1,0 +1,23 @@
+.not-found {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.not-found a {
+  transition: 0.2s ease all;
+  padding: 8px 20px;
+  background-color: salmon;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  font-size: 22px;
+}
+
+.not-found a:hover {
+  background-color:salmon;
+  color: #333;
+}

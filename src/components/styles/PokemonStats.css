@@ -1,0 +1,80 @@
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.poke-card {
+    background-color: #ccc;
+    min-width: 1000px;
+    min-height: 600px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.4);
+    margin: 40px;
+    border-radius: 20px;
+}
+
+header {
+    display: flex;
+    border-radius: 20px 20px 0 0;
+    border: 1px solid #333;
+    padding: 20px;
+}
+
+header img {
+    padding: 0 20px;
+}
+
+.data {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    border: 1px solid #333;
+    padding: 20px;
+    background-color: white;
+}
+
+.data h3 {
+    text-align: left;
+}
+
+hr {
+    width: 100%;
+    margin: 6px;
+    opacity: 0.4;
+}
+
+strong, h3 {
+    color: #333;
+}
+span {
+    color: #555;
+}
+
+.stats, .base-stats {
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    padding: 10px;
+}
+
+.stats {
+    background: rgb(232,232,232);
+    background: linear-gradient(145deg, rgba(232,232,232,1) 30%, rgba(138,138,138,1) 100%);
+    border-radius: 0 0 20px 20px;
+    border: 1px solid #333;
+}
+
+.base-stats {
+    flex-direction: column;
+}
+
+.bar {
+    height: 8px;
+    margin: 2px 0;
+    border: 1px solid #888;
+    background-color: rgb(39, 184, 39);
+    border-radius: 4px;
+}
