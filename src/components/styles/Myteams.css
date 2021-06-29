@@ -29,8 +29,8 @@
 /* ===== POKEMON TEAM ===== */
 
 .team {
-    max-width: 660px;
-    min-width: 650px;
+    max-width: 644px;
+    min-width: 644px;
     height: auto;
     background: rgb(102,102,102);
     background: linear-gradient(120deg, rgba(102,102,102,1) 0%, rgba(204,204,204,1) 74%, rgba(102,102,102,1) 100%);
@@ -76,7 +76,7 @@
 .trainer-img {
     display: flex;
     width: 100%;
-    justify-content: flex-end;
+    justify-content: center;
     margin-right: 10px;
 }
 
