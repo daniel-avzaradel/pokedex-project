@@ -17,6 +17,11 @@ let db = require('knex')({
     }
 });
 
+// app.get('/', (req, res) => {
+//     db
+//     .select('*').from('team')
+// })
+
 app.set("db", db);
 
 const bp = require('body-parser')

@@ -47,10 +47,9 @@ const Myteams = ({pokemon}) => {
                 <button type="Submit" className="btn" onClick={(e) => {
 
                     if(team === '' || trainer === '' || age === '' || gender === '') {
-                        return alert('Please fill all required fields')
+                        return alert('Please fill all required fields');
                     }
                     e.preventDefault();
-                    console.log(team, trainer, age, gender);
                     if(gender === '') {
                         setGender('boy')
                     }
