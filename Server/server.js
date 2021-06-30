@@ -17,10 +17,24 @@ let db = require('knex')({
     }
 });
 
-// app.get('/', (req, res) => {
-//     db
-//     .select('*').from('team')
-// })
+app.get('/team', (req, res) => {
+    // select * from team inner join pokemon on team.id = pokemon.team_id
+    db('team')
+    .join('pokemon', 'team.id', 'pokemon.team_id')
+    .select('*')
+    .then(team => {
+        res.send(team);
+    })
+    .catch(err => {
+        res.send({message: err})
+    })
+
+    // .select('*').from('team')
+    // .then(team => {
+    //     console.log(team);
+    //     res.send(team)
+    // })
+})
 
 app.set("db", db);
 

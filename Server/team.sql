@@ -21,4 +21,6 @@ insert into pokemon (id, name, team_id)
 values ('150', 'mewtwo', '1'), ('149', 'dragonite', '1'), ('130', 'gyarados', '1'), 
 ('145', 'zapdos', '1'), ('59', 'arcanine', '1'), ('3', 'venusaur', '1')
 
+update pokemon set id = (pokemon.id - 1)
+
 select * from team inner join pokemon on team.id = pokemon.team_id

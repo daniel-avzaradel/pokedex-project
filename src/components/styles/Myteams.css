@@ -194,7 +194,7 @@
     border-radius: 10px;
     box-sizing: border-box;
     box-shadow: 0 0 10px rgba(0,0,0,0.4);
-    width: 400px;
+    width: 480px;
     color: white;
 }
 
@@ -212,4 +212,25 @@
 
 h2 {
     margin: 20px;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.list div {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+    background: rgb(117,117,117);
+    background: linear-gradient(140deg, rgba(117,117,117,1) 0%, rgba(32,32,32,1) 77%);
+    margin: 10px 10px 0 0;
+    padding: 10px;
+    border-radius: 6px;
+    border: 2px solid #222;
+}
+
+#one, #two, #three, #four, #five, #six {
+    margin: 10px 0;
 }
