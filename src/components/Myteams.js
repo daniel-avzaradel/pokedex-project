@@ -6,17 +6,18 @@ import girl from "../img/girl.png";
 
 const Myteams = ({ pokemon }) => {
   const [create, setCreate] = useState(false);
-  const [team, setTeam] = useState("Developers Institute");
-  const [trainer, setTrainer] = useState("Daniel");
-  const [age, setAge] = useState("16");
-  const [gender, setGender] = useState("boy");
-  const [one, setOne] = useState('')
-  const [two, setTwo] = useState('')
-  const [three, setThree] = useState('')
-  const [four, setFour] = useState('')
-  const [five, setFive] = useState('')
-  const [six, setSix] = useState('')
-  const [teams, setTeams] = useState([[team, trainer, age, gender, one, two, three, four, five, six]]);
+  const [team, setTeam] = useState('');
+  const [trainer, setTrainer] = useState('');
+  const [age, setAge] = useState('');
+  const [gender, setGender] = useState('');
+  const [one, setOne] = useState(1)
+  const [two, setTwo] = useState(1)
+  const [three, setThree] = useState(1)
+  const [four, setFour] = useState(1)
+  const [five, setFive] = useState(1)
+  const [six, setSix] = useState(1)
+  const [list, setList] = useState([one, two, three, four, five, six])
+  const [teams, setTeams] = useState([[team, trainer, age, gender]]);
 
 
   if (create) {
@@ -85,10 +86,9 @@ const Myteams = ({ pokemon }) => {
               <p>Pokemon #1</p>
               <select name="one" id="one" onChange={(e) => {
                     setOne(e.target.value)}}>
-                <option value="none">none</option>
 
                 {pokemon.map((item) => {
-                  return <option value={item.name}>{item.name}</option>;
+                  return <option value={item.id}>{item.name}</option>;
                 })}
               </select>
             </div>
@@ -97,10 +97,9 @@ const Myteams = ({ pokemon }) => {
               <p>Pokemon #2</p>
               <select name="two" id="two" onChange={(e) => {
                     setTwo(e.target.value)}}>
-                <option value="none">none</option>
 
                 {pokemon.map((item) => {
-                  return <option value={item.name}>{item.name}</option>;
+                  return <option value={item.id}>{item.name}</option>;
                 })}
               </select>
             </div>
@@ -109,10 +108,9 @@ const Myteams = ({ pokemon }) => {
               <p>Pokemon #3</p>
               <select name="three" id="three" onChange={(e) => {
                     setThree(e.target.value)}}>
-                <option value="none">none</option>
 
                 {pokemon.map((item) => {
-                  return <option value={item.name}>{item.name}</option>;
+                  return <option value={item.id}>{item.name}</option>;
                 })}
               </select>
             </div>
@@ -121,10 +119,9 @@ const Myteams = ({ pokemon }) => {
               <p>Pokemon #4</p>
               <select name="four" id="four" onChange={(e) => {
                     setFour(e.target.value)}}>
-                <option value="none">none</option>
 
                 {pokemon.map((item) => {
-                  return <option value={item.name}>{item.name}</option>;
+                  return <option value={item.id}>{item.name}</option>;
                 })}
               </select>
             </div>
@@ -133,10 +130,9 @@ const Myteams = ({ pokemon }) => {
               <p>Pokemon #5</p>
               <select name="five" id="five" onChange={(e) => {
                     setFive(e.target.value)}}>
-                <option value="none">none</option>
 
                 {pokemon.map((item) => {
-                  return <option value={item.name}>{item.name}</option>;
+                  return <option value={item.id}>{item.name}</option>;
                 })}
               </select>
             </div>
@@ -145,10 +141,9 @@ const Myteams = ({ pokemon }) => {
               <p>Pokemon #6</p>
               <select name="six" id="six" onChange={(e) => {
                     setSix(e.target.value)}}>
-                <option value="none">none</option>
 
                 {pokemon.map((item) => {
-                  return <option value={item.name}>{item.name}</option>;
+                  return <option value={item.id}>{item.name}</option>;
                 })}
               </select>
             </div>
@@ -162,7 +157,8 @@ const Myteams = ({ pokemon }) => {
             onClick={(e) => {
               e.preventDefault();
 
-              setTeams([...teams, [team, trainer, age, gender, one, two, three, four, five, six]]);
+              setTeams([...teams, [team, trainer, age, gender]]);
+              setList([one, two, three, four, five, six]);
               setCreate(false);
             }}
           >
@@ -187,36 +183,38 @@ const Myteams = ({ pokemon }) => {
           </button>
           <br />
           <div className="teams">
-            {/* <TeamDaniel pokemon={pokemon} /> */}
+
+            <TeamDaniel
+                    pokemon={pokemon}
+                    team='Developers Institute'
+                    trainer='Daniel'
+                    age='14'
+                    gender='boy'
+                    key='daniel'
+                  />
 
             {teams.length > 0 ? (
               teams.map((item, i) => {
-                return (
-                  <Team
-                    pokemon={pokemon}
-                    team={item[0]}
-                    trainer={item[1]}
-                    age={item[2]}
-                    gender={item[3]}
-                    key={i}
-                  />
-                );
+                if(i === 0) {
+                  return <></>
+                } else {
+                  return (
+                    <Team
+                      pokemon={pokemon}
+                      team={item[0]}
+                      trainer={item[1]}
+                      age={item[2]}
+                      gender={item[3]}
+                      list={list}
+                      key={i}
+                    />
+                  );
+                }
               })
             ) : (
               <></>
             )}
 
-            {/* {
-                    team !== '' ? (
-                        <Team 
-                pokemon={pokemon} 
-                team={team}
-                trainer={trainer}
-                age={age}
-                gender={gender}
-                />
-                    ) : (<></>)
-                } */}
           </div>
         </div>
       </>
@@ -224,7 +222,7 @@ const Myteams = ({ pokemon }) => {
   }
 };
 
-const Team = ({ pokemon, team, trainer, age, gender }) => {
+const TeamDaniel = ({ pokemon, team, trainer, age, gender }) => {
 
   const [pokemonteams, setPokemonteams] = useState([]);
 
@@ -265,12 +263,7 @@ const Team = ({ pokemon, team, trainer, age, gender }) => {
         {pokemonteams.map((team) => {
           return <PokemonTeam pokemon={pokemon} team={team} key={team.id} />;
         })}
-        {/* <PokemonTeam pokemon={pokemon} />
-                    <PokemonTeam pokemon={pokemon} />
-                    <PokemonTeam pokemon={pokemon} />
-                    <PokemonTeam pokemon={pokemon} />
-                    <PokemonTeam pokemon={pokemon} />
-                    <PokemonTeam pokemon={pokemon} /> */}
+
       </div>
       <div className="buttons">
         <button>Edit</button>
@@ -280,60 +273,80 @@ const Team = ({ pokemon, team, trainer, age, gender }) => {
   );
 };
 
-// const TeamDaniel = ({pokemon}) => {
+const Team = ({ pokemon, team, trainer, age, gender, list }) => {
 
-//     return(
-//         <div className="team">
-//             <div className="trainer">
-//                 <div className="trainer-stats">
-//                 <h3>Team: <span>Developers Institute</span></h3>
-//                 <p>Trainer: <span>Daniel</span></p>
-//                 <p>Age: <span>12</span></p>
-//                 <p>Gender: <span>boy</span></p>
-//                 </div>
-//                 <div className="trainer-img">
-//                     <img src={boy} alt="" />
-//                 </div>
-//             </div>
-//             <div className="pokemon-list">
-//                     <PokemonTeamRandom pokemon={pokemon} />
-//                     <PokemonTeamRandom pokemon={pokemon} />
-//                     <PokemonTeamRandom pokemon={pokemon} />
-//                     <PokemonTeamRandom pokemon={pokemon} />
-//                     <PokemonTeamRandom pokemon={pokemon} />
-//                     <PokemonTeamRandom pokemon={pokemon} />
-//             </div>
-//             <div className="buttons">
-//                 <button>Edit</button>
-//                 <button>Delete</button>
-//             </div>
-//         </div>
-//     )
-// }
+  return (
+    <div className="team">
+      <div className="trainer">
+        <div className="trainer-stats">
+          <h3>
+            Team: <span>{team}</span>
+          </h3>
+          <p>
+            Trainer: <span>{trainer}</span>
+          </p>
+          <p>
+            Age: <span>{age}</span>
+          </p>
+          <p>
+            Gender: <span>{gender}</span>
+          </p>
+        </div>
+        <div className="trainer-img">
+          {gender === "boy" ? (
+            <img src={boy} alt="" />
+          ) : (
+            <img src={girl} alt="" />
+          )}
+        </div>
+      </div>
+      <div className="pokemon-list">
+        {list.map((item, i) => {
+          return <PokemonTeamCustom pokemon={pokemon} team={item} key={i} />;
+        })}
 
-// const PokemonTeamRandom = ({pokemon}) => {
+      </div>
+      <div className="buttons">
+        <button>Edit</button>
+        <button>Delete</button>
+      </div>
+    </div>
+  );
+};
 
-//     const random = Math.floor(Math.random() * 151);
+const PokemonTeamCustom = ({ pokemon, team }) => {
 
-//     return(
-//         <div>
-//         <Link to={'/pokedex/'+ (random+1)}>
-//             <div className="pokemon-li">
-//                 <div className="sprite">
-//                     <div className="pokeball">
-//                     <img src={pokemon[random].sprites.front_default} alt="" />
-//                     </div>
-//                 </div>
-//                 <div className="pokemon-li-stats">
-//                     <p>{pokemon[random].name.toUpperCase()}</p>
-//                     <div className="hp" style={{backgroundColor: '#333'}}><p style={{color: 'gold', fontWeight: 'bold'}}>HP: </p><div className="hp-bar"></div></div>
-//                     <p style={{textAlign: 'right', marginRight: '10px', color: 'white'}}>{pokemon[random].stats[0].base_stat} / {pokemon[random].stats[0].base_stat}</p>
-//                 </div>
-//             </div>
-//         </Link>
-//         </div>
-//     )
-// }
+  return (
+    <div>
+      <Link to={"/pokedex/" + (team)}>
+        <div className="pokemon-li">
+          <div className="sprite">
+            <div className="pokeball">
+              <img src={pokemon[team-1].sprites.front_default} alt="" />
+            </div>
+          </div>
+          <div className="pokemon-li-stats">
+            <p>{pokemon[team-1].name.toUpperCase()}</p>
+            <div className="hp" style={{ backgroundColor: "#333" }}>
+              <p style={{ color: "gold", fontWeight: "bold" }}>HP: </p>
+              <div className="hp-bar"></div>
+            </div>
+            <p
+              style={{
+                textAlign: "right",
+                marginRight: "10px",
+                color: "white",
+              }}
+            >
+              {pokemon[team-1].stats[0].base_stat} /{" "}
+              {pokemon[team-1].stats[0].base_stat}
+            </p>
+          </div>
+        </div>
+      </Link>
+    </div>
+  );
+};
 
 const PokemonTeam = ({ pokemon, team }) => {
   //   const random = Math.floor(Math.random() * 151);
