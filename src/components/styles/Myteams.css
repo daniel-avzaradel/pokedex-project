@@ -234,3 +234,7 @@ h2 {
 #one, #two, #three, #four, #five, #six {
     margin: 10px 0;
 }
+
+.pokeball-list {
+    padding: 10px 0 0 0;
+}

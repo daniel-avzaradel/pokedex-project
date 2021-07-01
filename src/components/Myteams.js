@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./styles/Myteams.css";
 import boy from "../img/boy.png";
 import girl from "../img/girl.png";
+import pokeball from "../img/pokeball-small.png";
 
 const Myteams = ({ pokemon }) => {
   const [create, setCreate] = useState(false);
@@ -250,6 +251,14 @@ const TeamDaniel = ({ pokemon, team, trainer, age, gender }) => {
           <p>
             Gender: <span>{gender}</span>
           </p>
+          <div className="pokeball-list">
+            <img src={pokeball} alt="pokeball small" style={{width: '20px', height: '20px'}} />
+            <img src={pokeball} alt="pokeball small" style={{width: '20px', height: '20px'}} />
+            <img src={pokeball} alt="pokeball small" style={{width: '20px', height: '20px'}} />
+            <img src={pokeball} alt="pokeball small" style={{width: '20px', height: '20px'}} />
+            <img src={pokeball} alt="pokeball small" style={{width: '20px', height: '20px'}} />
+            <img src={pokeball} alt="pokeball small" style={{width: '20px', height: '20px'}} />
+          </div>
         </div>
         <div className="trainer-img">
           {gender === "boy" ? (
@@ -291,6 +300,14 @@ const Team = ({ pokemon, team, trainer, age, gender, list }) => {
           <p>
             Gender: <span>{gender}</span>
           </p>
+          <div className="pokeball-list">
+            <img src={pokeball} alt="pokeball small" style={{width: '20px', height: '20px'}} />
+            <img src={pokeball} alt="pokeball small" style={{width: '20px', height: '20px'}} />
+            <img src={pokeball} alt="pokeball small" style={{width: '20px', height: '20px'}} />
+            <img src={pokeball} alt="pokeball small" style={{width: '20px', height: '20px'}} />
+            <img src={pokeball} alt="pokeball small" style={{width: '20px', height: '20px'}} />
+            <img src={pokeball} alt="pokeball small" style={{width: '20px', height: '20px'}} />
+          </div>
         </div>
         <div className="trainer-img">
           {gender === "boy" ? (
